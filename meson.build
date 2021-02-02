@@ -128,6 +128,13 @@ gw_lib_deps = [
 if not meson.is_subproject()
   install_headers(
     files([
+      'common/base/include/claraparabricks/genomeworks/gw_config.hpp',
+      'common/base/include/claraparabricks/genomeworks/types.hpp',
+    ]),
+    subdir : 'claraparabricks/genomeworks')
+
+  install_headers(
+    files([
       'cudaaligner/include/claraparabricks/genomeworks/cudaaligner/aligner.hpp',
       'cudaaligner/include/claraparabricks/genomeworks/cudaaligner/alignment.hpp',
       'cudaaligner/include/claraparabricks/genomeworks/cudaaligner/cudaaligner.hpp',
