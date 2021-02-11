@@ -53,7 +53,9 @@ nvcc = meson.get_compiler('cuda')
 
 gw_cuda_arch_flags = cuda.nvcc_arch_flags(nvcc, 'Auto')
 gw_cuda_arch_flags += '--expt-relaxed-constexpr'
-gw_cuda_arch_flags += '-DNDEBUG'
+if (get_option('b_ndebug') == 'true') or ((get_option('b_ndebug') == 'if-release') and (get_option('buildtype') == 'release'))
+  gw_cuda_arch_flags += '-DNDEBUG'
+endif
 gw_cuda_arch_readable = cuda.nvcc_arch_readable(nvcc, 'Auto')
 gw_driver_version = cuda.min_driver_version(nvcc.version())
 
