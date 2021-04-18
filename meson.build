@@ -71,6 +71,7 @@ message('Driver version: >=' + gw_driver_version)
 #####################
 
 cuda_versions = [
+  '11.3',
   '11.2',
   '11.1',
   '11.0',
